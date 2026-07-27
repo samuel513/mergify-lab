@@ -1,20 +1,10 @@
-merge_queue:
-  max_parallel_checks: 1
-
-queue_rules:
-  - name: default
-    batch_size: 2
-    batch_max_wait_time: 30 s
-    queue_conditions:
-      - base=main
-    merge_conditions:
-      - check-success=gate
+extends: devin-test-2026
 
 pull_request_rules:
-  - name: queue on label
+  - name: local rule
     conditions:
       - base=main
-      - label=batch-me
     actions:
-      queue:
-        name: default
+      label:
+        add:
+          - local
