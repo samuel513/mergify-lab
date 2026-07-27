@@ -3,6 +3,7 @@ pull_request_rules:
     conditions:
       - base=main
       - check-success=gate
+      - "#approved-reviews-by>=1"
     actions:
       merge:
         method: merge
