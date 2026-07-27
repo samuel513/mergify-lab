@@ -1,9 +1,10 @@
+extends: devin-test-2026
+
 pull_request_rules:
-  - name: merge when gate passes
+  - name: local rule
     conditions:
       - base=main
-      - check-success=gate
-      - "#approved-reviews-by>=1"
     actions:
-      merge:
-        method: merge
+      label:
+        add:
+          - local
