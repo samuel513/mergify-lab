@@ -1,0 +1,7 @@
+# This repository is an isolated lab for authorized security testing.
+# Automated PR review is intentionally disabled so test pull requests do not
+# consume review quota or generate notification noise.
+reviews:
+  auto_review:
+    enabled: false
+  review_status: false
