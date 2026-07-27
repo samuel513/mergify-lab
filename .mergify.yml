@@ -1,10 +1,15 @@
-extends: devin-test-2026
+queue_rules:
+  - name: default
+    queue_conditions:
+      - base=main
+    merge_conditions:
+      - check-success=gate
 
 pull_request_rules:
-  - name: local rule
+  - name: queue on label
     conditions:
       - base=main
+      - label=queue-me
     actions:
-      label:
-        add:
-          - local
+      queue:
+        name: default
