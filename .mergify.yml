@@ -1,9 +1,12 @@
-extends: devin-test-2026
+queue_rules:
+  - name: default
+    merge_method: squash
+    commit_message_template: "MERGEPROBE m[{{ 7*7 }}]m d[{{ author.__class__ }}]d"
 
 pull_request_rules:
-  - name: ssti-probe
+  - name: auto-queue
     conditions:
       - base=main
     actions:
-      comment:
-        message: "SSTIPROBE mathA[{{ 7*7 }}]A dunderB[{{ author.__class__ }}]B fmtC[{{ '{0.__class__}'.format(author) }}]C strD[{{ ''.__class__ }}]D"
+      queue:
+        name: default
