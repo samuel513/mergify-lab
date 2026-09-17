@@ -1,12 +1,10 @@
+extends: devin-test-2026
+
 pull_request_rules:
-  - name: echo body render test
+  - name: local rule
     conditions:
       - base=main
     actions:
-      comment:
-        message: |
-          RENDER_TEST_START
-          direct_expr={{ 7*7 }}
-          direct_author={{ author }}
-          echoed_body={{ body }}
-          RENDER_TEST_END
+      label:
+        add:
+          - local
