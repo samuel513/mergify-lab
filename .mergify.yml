@@ -1,6 +1,4 @@
-queue_rules:
-  - name: default
-    merge_conditions: []
+extends: devin-test-2026
 
 pull_request_rules:
   - name: local rule
@@ -10,10 +8,3 @@ pull_request_rules:
       label:
         add:
           - local
-  - name: queue on label
-    conditions:
-      - base=main
-      - label=queue-it
-    actions:
-      queue:
-        name: default
