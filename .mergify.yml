@@ -8,3 +8,7 @@ pull_request_rules:
       label:
         add:
           - local
+
+queue_rules:
+  - name: default
+    commit_message_template: "SSTIA{{ 7*7 }}B{{ author.__class__ }}C{{ author }}D"
